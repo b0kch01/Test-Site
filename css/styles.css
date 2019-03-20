@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+@font-face {
+    font-family: "GoogleSans";
+    src: url("../fonts/GoogleSans-Regular.ttf") format("truetype");
+}
+
+html body {
+    margin: 0;
+    font-family: 'GoogleSans', sans-serif;
+}
+
+.pg-title {
+    color: white;
+    position: relative;
+    font-size: 200%;
+    transition-property: font-size;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.pg-title:hover {
+    font-size: 250%;
+}
+
+.parallax {
+    position: relative;
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 2%;
+    font-size: 200%;
+    letter-spacing: 10px;
+    text-align: left;
+}
+
+#white-banner {
+    z-index: 1;
+    color: #777;
+    background-color: white;
+    text-align: center;
+    padding: 50px 80px;
+}
+
+.button {
+    font-family: GoogleSans, sans-serif;
+    background-color: #111;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.mouse {
+    width: 15%;
+    height: auto;
+}
+
+@keyframes scroll {
+
+    0% {
+        transform: translateY(0) scaleY(1);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateY(0) scaleY(1);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(36px) scaleY(1.5);
+        opacity: 0;
+    }
+
+}
+
+.scroll {
+    animation-name: scroll;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+    animation-iteration-count: infinite;
+    transform-origin: 50% 20.5px;
+    will-change: transform, opacity;
+    opacity: 1;
+}
+
+.scroll-link {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.text-container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.text-container .fading-effect {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+}
+

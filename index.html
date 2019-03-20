@@ -1,15 +1,85 @@
-<html>
-  <title>
-    First Github Website
-  </title>
-  <body>
-     Sup dude welocme!
-  </body>
-  <style>
-   body {
-     background-color: green;
-     text-align: center;
-     color: #fff;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <title>Another Website?</title>
+</head>
+<body>
+<div class="parallax"
+     style="background-image: url(http://ginva.com/wp-content/uploads/2016/08/img_57a0010d27c7f.png); opacity: 0.7">
+    <div class="caption scroll-top">
+        <span class="border">Hello</span>
+    </div>
+    <a id="scroll-indicator" class="scroll-link scroll-top">
+        <svg class="mouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130" preserveAspectRatio="xMidYMid meet">
+            <g fill="none" fill-rule="evenodd">
+                <rect width="70" height="118" x="1.5" y="1.5" stroke="#FFF" stroke-width="3" rx="36"/>
+                <circle class="scroll" cx="36.5" cy="31.5" r="4.5" fill="#FFF"/>
+            </g>
+        </svg>
+    </a>
+</div>
+<div id="white-banner">
+    <!--<div class="title">-->
+    <!--<div class="fading-effect"></div>-->
+    <!--<h2 id="MachineLearning" class="scroll-top2">Machine-Learning</h2>-->
+    <!--</div>-->
+    <div id="title" class="text-container scroll-top2">
+        <h2 id="MachineLearning">Machine-Learning</h2>
+        <div class="fading-effect"></div>
+    </div>
+    <p class="scroll-top2">I just do a bunch of super easy Machine Learning Programs. </p>
+    <p class="scroll-top2">I am exploring Deep Learning and Neural Networks</p>
+</div>
+<div class="parallax" style="background-image: url(images/material.jpg); opacity: 0.7">
+    <div class="caption scroll-top">
+        <span class="border">welcome</span>
+    </div>
+</div>
+<div style="background-color: white; text-align: center">
+    <button onclick="window.open('https://github.com/b0kch01/MachineLearning')" class="button" style="margin: 2%"><span>GitHub </span>
+    </button>
+</div>
+</body>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script>var success = false;
+if ($(function () {
+    return true;
+})) {
+    success = true
+}
+console.log("jQuery Loaded Successfully: ", success)</script>
+<script>
+    $(".parallax").css("min-height", $(window).height());
+
+    function parabola(vertex, range, x) {
+        var sroot = vertex + range;
+        var broot = vertex - range;
+        var a = 1 / (-1 * (range ** 2));
+        var equation = a * (x - sroot) * (x - broot);
+        return equation;
     }
-  </style>
+
+    function amountscrolled() {
+        return ($(window).scrollTop() / ($(document).height() - $(window).height()));
+    }
+
+    $(window).scroll(function () {
+        var cover = 100 - 100 * parabola(0.55, 0.2, amountscrolled());
+        $(".scroll-top").css("opacity", parabola(0, 0.3, amountscrolled()));
+        $(".scroll-top2").css("opacity", parabola(0.5, 0.2, amountscrolled()));
+        $(".fading-effect").css("width", cover + '%');
+        console.log(amountscrolled())
+    });
+
+    $(window).on("resize", function () {
+        $(".parallax").css("min-height", $(window).height());
+    });
+
+    $("#scroll-indicator").click(function () {
+        $('html, body').animate({scrollTop: $("#MachineLearning").offset().top - 0.4 * $(window).height()}, 2000, "easeInOutQuint");
+    });
+</script>
 </html>
