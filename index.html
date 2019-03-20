@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Another Website?</title>
 </head>
 <body>
-<div class="parallax"
-     style="background-image: url(http://ginva.com/wp-content/uploads/2016/08/img_57a0010d27c7f.png); opacity: 0.7">
+<div class="parallax" style="background-image: url(images/pinkmts.jpg); opacity: 0.7">
     <div class="caption scroll-top">
         <span class="border">Hello</span>
     </div>
@@ -21,20 +21,19 @@
     </a>
 </div>
 <div id="white-banner">
-    <!--<div class="title">-->
-    <!--<div class="fading-effect"></div>-->
-    <!--<h2 id="MachineLearning" class="scroll-top2">Machine-Learning</h2>-->
-    <!--</div>-->
-    <div id="title" class="text-container scroll-top2">
-        <h2 id="MachineLearning">Machine-Learning</h2>
-        <div class="fading-effect"></div>
+    <div id="title" class="text-container scroll-top2" style="position:relative;">
+        <h2>Machine-Learning</h2>
+        <div class="reveal-block" id="reveal-block-1"></div>
     </div>
     <p class="scroll-top2">I just do a bunch of super easy Machine Learning Programs. </p>
     <p class="scroll-top2">I am exploring Deep Learning and Neural Networks</p>
 </div>
-<div class="parallax" style="background-image: url(images/material.jpg); opacity: 0.7">
-    <div class="caption scroll-top">
-        <span class="border">welcome</span>
+<div style="background-color: gray; position: relative;">
+    <div class="parallax">
+        <div class="text-container">
+            <img style="width: 80%;" src="images/code.png">
+            <div class="reveal-block" id="reveal-block-2"></div>
+        </div>
     </div>
 </div>
 <div style="background-color: white; text-align: center">
@@ -44,42 +43,11 @@
 </body>
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.easing.js"></script>
-<script>var success = false;
-if ($(function () {
-    return true;
-})) {
-    success = true
-}
-console.log("jQuery Loaded Successfully: ", success)</script>
+<script type="text/javascript" src="js/animations.js"></script>
 <script>
-    $(".parallax").css("min-height", $(window).height());
-
-    function parabola(vertex, range, x) {
-        var sroot = vertex + range;
-        var broot = vertex - range;
-        var a = 1 / (-1 * (range ** 2));
-        var equation = a * (x - sroot) * (x - broot);
-        return equation;
+    var success = false;
+    if ($(function () {return true; })) {
+        success = true
     }
-
-    function amountscrolled() {
-        return ($(window).scrollTop() / ($(document).height() - $(window).height()));
-    }
-
-    $(window).scroll(function () {
-        var cover = 100 - 100 * parabola(0.55, 0.2, amountscrolled());
-        $(".scroll-top").css("opacity", parabola(0, 0.3, amountscrolled()));
-        $(".scroll-top2").css("opacity", parabola(0.5, 0.2, amountscrolled()));
-        $(".fading-effect").css("width", cover + '%');
-        console.log(amountscrolled())
-    });
-
-    $(window).on("resize", function () {
-        $(".parallax").css("min-height", $(window).height());
-    });
-
-    $("#scroll-indicator").click(function () {
-        $('html, body').animate({scrollTop: $("#MachineLearning").offset().top - 0.4 * $(window).height()}, 2000, "easeInOutQuint");
-    });
-</script>
+    console.log("jQuery Loaded Successfully: ", success)</script>
 </html>
